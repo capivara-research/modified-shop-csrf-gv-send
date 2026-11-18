@@ -5,6 +5,7 @@
 > **Severity:** Medium · **CVSS 3.1:** 4.3 — `CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N`
 > **CWE:** CWE-352 (Cross-Site Request Forgery) · **CAPEC-62**
 > **Status:** Unpatched
+> **Vendor notified:** 2026-11-18 — [modified-shop/modified-shop#3772](https://github.com/modified-shop/modified-shop/issues/3772)
 
 ---
 
@@ -135,7 +136,8 @@ grep "gv_send.php.*process" access.log | grep "POST"   # inspect Referer values
 | 2026-11-16 | Confirmed in authorized lab |
 | 2026-11-18 | Verified still unpatched in `main` (post 2026-11-12 vendor security update) |
 | 2026-11-18 | Advisory + PoC published (this repository) |
-| pending | Vendor notified / CVE requested |
+| 2026-11-18 | **Vendor notified** — [issue #3772](https://github.com/modified-shop/modified-shop/issues/3772) |
+| pending | CVE requested |
 
 ## 11. Credits
 
@@ -144,6 +146,7 @@ grep "gv_send.php.*process" access.log | grep "POST"   # inspect Referer values
 
 ## 12. References
 
+- **Vendor notification:** https://github.com/modified-shop/modified-shop/issues/3772
 - CWE-352: https://cwe.mitre.org/data/definitions/352.html
 - CAPEC-62: https://capec.mitre.org/data/definitions/62.html
 - CVSS calculator: https://www.first.org/cvss/calculator/3.1
